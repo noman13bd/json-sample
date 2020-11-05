@@ -18,13 +18,13 @@ class Database:
     
 class SQLAlchemyConfig:
     track_modification: bool = False
-    database_uri: str = f"{Database._database}+{Database._db_driver}://{Database._db_usrname}:{Database._db_password}"
+    database_uri: str = f"{Database._database}+{Database._db_driver}://{Database._db_usrname}:{Database._db_password}@{Database._db_host}:{Database._db_port}/{Database._db_name}"
     echo: bool = False
     native_unicode: str = "utf-8"
     commit_on_teadown: bool = False
     pool_size: int = 125
     pool_recyle: int = 30
-    engine_options: Dict[str: Any] = {
+    engine_options: Dict[str, Any] = {
         "max_overflow": 50,
         "pool_pre_ping": True
     }
