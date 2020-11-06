@@ -1,5 +1,7 @@
-from models.base import BaseModel
-from core.database import db
+import bcrypt
+
+from src.models.base import BaseModel
+from src.core.database import db
 
 class User(db.Model, BaseModel):
     __tablename__ = "users"
@@ -14,7 +16,10 @@ class User(db.Model, BaseModel):
         
         self.name = name
         self.email = email
-        self.password = password
+        self._password = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
         
     def __repr__(self):
         return "User({})".format(self.id)
+    
+    def check_password(self, password):
+        return bcrypt.checkpw(password.encode(), self._password.encode())
