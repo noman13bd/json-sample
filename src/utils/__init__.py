@@ -23,4 +23,5 @@ class ResponseGenerator:
         return ResponseGenerator.generate_response(mssg, code, True)
     
     #@staticmethod
-    #def 
+    def json_data_expected(mssg: str = "JSON data expected!", code: int = HTTPStatus.BAD_REQUEST):
+        return ResponseGenerator.error_response(mssg, code)

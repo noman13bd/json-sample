@@ -1,12 +1,14 @@
 from src.models.user import User
-from flask import Blueprint
+from flask import Blueprint, request
 from src.utils import ResponseGenerator
-from src.models import user
+from src.decorators import json_data_required
 
 user_blueprint = Blueprint('user', __name__)
 
 @user_blueprint.route('/api/v1/register', methods=['POST'])
+@json_data_required
 def user_register():
-    new_user = User('Ismail', 'imn@imn.com', '123456')
+    data = request.get_json()
+    new_user = User(data['name'], data['email'], data['password'])    
     new_user.save()
-    return ResponseGenerator.generate_response('ok', 200)
+    return ResponseGenerator.generate_response(new_user.__repr__(), 200)
