@@ -1,5 +1,5 @@
 from datetime import datetime
-from src.core.database import db
+from core.database import db
 
 class BaseModel():
     """ generalize model's common functions """
