@@ -1,5 +1,5 @@
-from src.models.base import BaseModel
-from src.core.database import db
+from models.base import BaseModel
+from core.database import db
 
 class Todo(db.Model, BaseModel):
     __tablename__ = "todos"
