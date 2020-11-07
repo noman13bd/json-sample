@@ -12,7 +12,10 @@ def user_register():
     data = request.get_json()
     new_user = UserRepository.create_user(data['name'], data['email'], data['password'])
     print(new_user)
-    return ResponseGenerator.generate_response(new_user.__repr__(), 200)
+    return ResponseGenerator.generate_response({
+        'name':new_user.name,
+        'email':new_user.email,
+        }, 200)
 
 @user_blueprint.route('/api/v1/login', methods=['POST'])
 @json_data_required

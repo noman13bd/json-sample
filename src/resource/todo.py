@@ -12,4 +12,7 @@ def todo_create():
     data = request.get_json()
     new_todo = TodoRepository.create_todo(data['title'], data['isCompleted'])
     
-    return ResponseGenerator.generate_response(new_todo.__repr__(), 200)
+    return ResponseGenerator.generate_response({
+            'title': new_todo.title,
+            'isCompleted': new_todo.isCompleted
+    }, 200)
