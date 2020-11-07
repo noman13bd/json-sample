@@ -9,6 +9,8 @@ ToDos APIs -
 `source env/bin/activate`
 * install modules
 `pip install -r requirements.txt`
+* start docker (PostgreSQL will run on docker)
+` docker-compose up -d`
 * run DB migrations
 `python3 manager.py db init`
 `python3 manager.py db migrate`
