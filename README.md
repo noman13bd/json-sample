@@ -35,3 +35,11 @@ END Points are:
     "password": "123456"
 }
 ```
+3. `/api/v1/todo` - POST
+```json
+{
+    "title":"to do one",
+    "isCompleted": 0
+}
+```
+need to POST this with `Access-Token` in header. Login POST will return the needed token.

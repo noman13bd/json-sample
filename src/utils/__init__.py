@@ -22,11 +22,14 @@ class ResponseGenerator:
     def error_response(mssg: str, code: int):
         return ResponseGenerator.generate_response(mssg, code, True)
     
-    #@staticmethod
+    @staticmethod
     def json_data_expected(mssg: str = "JSON data expected!", code: int = HTTPStatus.BAD_REQUEST):
         return ResponseGenerator.error_response(mssg, code)
     
-    #@staticmethod
+    @staticmethod
     def user_login_failed(mssg: str = "Either email or password does not match!", code: int = HTTPStatus.UNAUTHORIZED):
         return ResponseGenerator.error_response(mssg, code)
     
+    @staticmethod
+    def forbidden_op(mssg: str, code: int = HTTPStatus.FORBIDDEN):
+        return ResponseGenerator.error_response(mssg, code)
