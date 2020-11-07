@@ -25,3 +25,8 @@ class ResponseGenerator:
     #@staticmethod
     def json_data_expected(mssg: str = "JSON data expected!", code: int = HTTPStatus.BAD_REQUEST):
         return ResponseGenerator.error_response(mssg, code)
+    
+    #@staticmethod
+    def user_login_failed(mssg: str = "Either email or password does not match!", code: int = HTTPStatus.UNAUTHORIZED):
+        return ResponseGenerator.error_response(mssg, code)
+    
