@@ -19,13 +19,17 @@ ToDos APIs -
 -----
 END Points are:
 1. `/api/v1/register` - POST
-```{
+```json
+{
     "name":"XYZ",
     "email":"xyz@abc.com",
     "password": "123456"
-}```
+}
+```
 2. `/api/v1/login` - POST
-```{
+```json
+{
     "email":"xyz@abc.com",
     "password": "123456"
-}```
+}
+```
