@@ -1,7 +1,7 @@
 import bcrypt
 
-from models.base import BaseModel
-from core.database import db
+from src.models.base import BaseModel
+from src.core.database import db
 
 class User(db.Model, BaseModel):
     __tablename__ = "users"
